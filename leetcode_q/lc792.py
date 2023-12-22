@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/number-of-matching-subsequences/solutions/329381/python-solution-with-detailed-explanation/?envType=featured-list&envId=top-google-questions?envType=featured-list&envId=top-google-questions
+# 题解解释
 from collections import defaultdict
 class Solution:
     def numMatchingSubseq(self, s: str, words: list[str]) -> int:
