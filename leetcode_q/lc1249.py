@@ -16,9 +16,8 @@ class Solution:
                     remove_list.append(i)
         s = list(s)
         for index in remove_list:
-            s[index] = ' '
+            s[index] = ''
         s = ''.join(s)
-        s = s.replace(' ', '')
         return s
 
 sol = Solution()
