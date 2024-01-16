@@ -2,6 +2,7 @@
 # 注意点1：temp_p = temp_p.parent
 #         temp_q = temp_q.parent
 #         这两个应该在if statement之前，这样两个指针才能同时前进
+# 和力扣160 "相交链表"的逻辑很像
 class Solution:
     def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
         temp_p = p
