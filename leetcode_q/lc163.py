@@ -1,6 +1,6 @@
 class Solution:
     def findMissingRanges(self, nums: list[int], lower: int, upper: int) -> list[list[int]]:
-        res = [] 
+        res = []
         next_expected = lower  # 设置下一个期望的数字为下界lower
 
         for num in nums:  # 遍历输入的有序数组nums
