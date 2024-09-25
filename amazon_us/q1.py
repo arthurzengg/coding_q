@@ -13,6 +13,9 @@ def pair_orders_with_ads(orders, ad_events):
         events.append((ad_event[0], 'ad_event', ad_event))
     # Sort the merged list by timestamp
     events.sort(key=lambda x: x[0])
+    # print(events)
+
+
     # Process each event
     for _, event_type, event in events:
         if event_type == 'ad_event':
@@ -25,6 +28,7 @@ def pair_orders_with_ads(orders, ad_events):
             ad_event = last_ad_event.get(customer_id)
             # Append the order and its corresponding ad event to the result
             result.append((event, ad_event))
+    print(result)
     return result
 
 # Example usage:
