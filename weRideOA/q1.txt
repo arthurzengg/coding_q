@@ -1,0 +1,22 @@
+1. Distance Metric
+For each element in a given array, calculate the absolute value of index differences between it and all other elements of the same value. Return the resulting values in an array. For example, if the array elements at indices 2 and 3 are equal, the distance metric for element 2 is |2-
+3| = 1. For element 3 it is |3 - 2| = 1.
+Example:
+n = 6
+arr = [1, 2, 1, 1, 2, 3].
+The element arr[0] = 1. Similar elements are at indices 2
+and 3.
+The distance metric for arr[0] = |0-2| + |0-3|= 5
+Similar logic follows:
+The distance metric for arr[1] = |1-4| = 3
+The distance metric for arr[2] = |2-0| + |2-3| = 3
+The distance metric for arr [3] = |3-0| + |3-2| = 4
+The distance metric for arr[4] = |4-1| = 3
+The distance metric for arr[5] = 0
+Thus, distance metrics = [5, 3, 3, 4, 3, 0]
+Function Description
+Complete the function getDistanceMetrics in the editor below.
+getDistance Metrics has the following parameter(s):
+int arr[n]: an array of integers
+Returns:
+int[n]: array of integers representing the sum of the distance metric of each element in the array arr

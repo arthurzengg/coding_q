@@ -1,0 +1,22 @@
+Discount Events
+A general store at Hackerland sells n items with the price of the ith item represented by price[i]. The store adjusts the price of the items based on inflation as queries of two types:
+• 1 x v: Change the price of the xth item to v.
+• 2 v v: Change any price that is less than v to v.
+Given an array price of n integers and the price adjustment queries are in the form of a 2-d array where query[i] consists of 3 integers, find the final prices of all the items.
+Example
+n = 3
+price = [7, 5, 4]
+q=3
+queries = [[2, 6, 6], [1, 2, 9], [2, 8, 8]]
+• [2, 6, 6]  Change elements < 6 to 6. Now arr = [7, 6, 6].
+• [1, 2, 9]  Change the 2nd element to 9, arr = [7, 9, 6].
+• [2, 8, 8]  Change elements < 8 to 8. Finally arr = [8, 9, 8].
+Return [8, 9, 8] as the answer.
+
+Function Description
+Complete the function getFinalPrice in the editor below.
+getFinalPrice has the following parameter(s):
+int price[n]: An array of integers
+int queries[q][3]: A 2-d array of integers
+Returns
+int[n]: the final array after all queries are executed
