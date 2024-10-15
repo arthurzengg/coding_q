@@ -8,6 +8,9 @@ def getDistanceMetrics(arr):
     for idx, val in enumerate(arr):
         value_to_indices[val].append(idx)
 
+    print(value_to_indices)
+    print(value_to_indices.values())
+
     for indices in value_to_indices.values():
         k = len(indices)
         if k == 1:
@@ -39,5 +42,6 @@ def getDistanceMetrics(arr):
 
     return res
 
-print(getDistanceMetrics([1,2,1,1,2,3]))
-print(getDistanceMetrics([99,99,99,2999,2999,2999]))
+print(getDistanceMetrics([1,2,1,1,2,3])) # Output: [5, 3, 3, 4, 3, 0]
+
+# print(getDistanceMetrics([99,99,99,2999,2999,2999])) # Output: [3, 2, 3, 3, 2, 3]
