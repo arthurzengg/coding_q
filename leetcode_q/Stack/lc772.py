@@ -10,45 +10,42 @@ class Solution:
     """
 
 
-def calculate(self, s: str) -> int:
-    n = len(s)
-    stack = []
-    operator = '+'
-    num = 0
-    i = 0
+    def calculate(self, s: str) -> int:
+        n = len(s)
+        stack = []
+        operator = '+'
+        num = 0
+        i = 0
 
-    while i < n:
-        if s[i].isdigit():
-            num = num * 10 + int(s[i])
-        if s[i] == '(':
-            j = i + 1
-            count = 1
-            while j < n:
-                if s[j] == '(':
-                    count += 1
-                elif s[j] == ')':
-                    count -= 1
-                    if count == 0:
-                        break
-                j += 1
+        while i < n:
+            if s[i].isdigit():
+                num = num * 10 + int(s[i])
+            if s[i] == '(':
+                j = i + 1
+                count = 1
+                while j < n:
+                    if s[j] == '(':
+                        count += 1
+                    elif s[j] == ')':
+                        count -= 1
+                        if count == 0:
+                            break
+                    j += 1
 
-            num = self.calculate(s[i + 1:j])
-            i = j
+                num = self.calculate(s[i + 1:j])
+                i = j
 
-        if i == n - 1 or s[i] in '+-*/':
-            if operator == '+':
-                stack.append(num)
-            elif operator == '-':
-                stack.append(-num)
-            elif operator == '*':
-                stack.append(stack.pop() * num)
-            elif operator == '/':
-                stack.append(int(stack.pop() / num))
-            num = 0
-            operator = s[i]
-        i += 1
-        print(stack)
-    return sum(stack)
-
-
-```
+            if i == n - 1 or s[i] in '+-*/':
+                if operator == '+':
+                    stack.append(num)
+                elif operator == '-':
+                    stack.append(-num)
+                elif operator == '*':
+                    stack.append(stack.pop() * num)
+                elif operator == '/':
+                    stack.append(int(stack.pop() / num))
+                num = 0
+                operator = s[i]
+            i += 1
+            print(stack)
+        return sum(stack)
