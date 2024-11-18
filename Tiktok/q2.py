@@ -1,26 +1,18 @@
 def calculateMaxProcessingThroughput(serverTasks):
-    # Write your code here
-    # [0: 0, 4: 3, 2: 2, 1: 0, 3: 1] [0:0, 1:0, 3:1, 2:2, 4:3]
-    # [3:2, 0:3, 1:0,2:1] [1:0, 2:1, 3:2, 0:3]
     n = len(serverTasks)
+    blocked = [False] * n
+    # Sort indices based on decreasing serverTasks[i]
+    indices = sorted(range(n), key=lambda i: -serverTasks[i])
     total_throughput = 0
-    server_dict = {}
 
-    for i in range(n):
-        server_dict[serverTasks[i]] = serverTasks[serverTasks[i]]
-
-    sorted_dict = sorted(server_dict.items(), key=lambda item: item[1])
-
-    sorted_dict = [list(item) for item in sorted_dict]
-
-    visited = set()
-
-    for i in range(len(sorted_dict)):
-        if sorted_dict[i][0] in visited:
-            continue
-        else:
-            total_throughput += sorted_dict[i][0]
-            visited.add(sorted_dict[i][1])
+    for i in indices:
+        receiving_server = serverTasks[i]
+        if not blocked[i] and not blocked[receiving_server]:
+            # Add the throughput score from serverTasks[i]
+            total_throughput += serverTasks[i]
+            # Block the sending server
+            blocked[i] = True
+            # Note: Receiving server remains unblocked as per the correction
     return total_throughput
 
 
