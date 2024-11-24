@@ -39,3 +39,61 @@ class Solution:
 
         # 连通分量数减一即为最少需要的操作次数
         return components - 1
+
+
+
+
+
+# 并查集思路
+class UnionFind:
+    def __init__(self, size):
+        """初始化每个节点的根为自身。"""
+        self.root = [i for i in range(size)]
+
+    def find(self, x):
+        """查找x的根节点。应用路径压缩以优化性能。"""
+        if self.root[x] == x:
+            return x
+        else:
+            self.root[x] = self.find(self.root[x])
+        return self.root[x]
+
+    def union(self, x, y):
+        """合并x和y所在的集合。"""
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        if root_x != root_y:
+            self.root[root_y] = root_x
+
+
+class Solution:
+    """
+    # 思路：
+    1. 初始化并查集，用于管理计算机的连接状态。
+    2. 遍历每对连接的计算机，使用并查集的union方法合并集合。
+    3. 遍历所有计算机，使用并查集的find方法确定每台计算机的根节点，并统计连通分量的数量。
+    4. 如果连接数少于n-1，则返回-1，因为不可能将所有计算机连接成一个网络。
+    5. 否则，返回连通分量数量减1，即为使所有计算机连通所需的最少操作次数。
+
+    方法：
+    - __init__(size): 初始化一个大小为size的并查集。
+    - find(x): 查找并返回x的根节点，同时应用路径压缩优化查找效率。
+    - union(x, y): 合并x和y所在的集合。
+    - makeConnected(n, connections): 计算使n台计算机通过给定的连接全部连通所需的最少操作次数。
+    """
+
+    def makeConnected(self, n: int, connections: list[list[int]]) -> int:
+        if len(connections) < n - 1:
+            return -1
+
+        uf = UnionFind(n)
+
+        for cx, cy in connections:
+            uf.union(cx, cy)
+
+        components = set()
+        for i in range(n):
+            components.add(uf.find(i))
+
+        return len(components) - 1
