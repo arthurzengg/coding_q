@@ -1,6 +1,7 @@
 class Solution:
     """
-    # 思路：
+    Video: https://www.youtube.com/watch?v=wDBnBA82z1c
+    思路：
     利用二分查找在两个有序数组中找到中位数。
     根据两个数组的总长度决定如何将它们分为两部分，使得：
     1. 左半部分的所有元素都小于或等于右半部分的所有元素。
