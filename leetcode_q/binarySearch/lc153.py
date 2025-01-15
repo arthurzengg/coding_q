@@ -14,25 +14,22 @@ class Solution:
     4. 当左指针大于右指针时，结束循环，返回 res。
     """
 
-    def search(self, nums: List[int], target: int) -> int:
+    def findMin(self, nums: List[int]) -> int:
         n = len(nums)
         left = 0
         right = n - 1
+        res = float('inf')
         while left <= right:
             mid = (left + right) // 2
-            if nums[mid] == target:
-                return mid
-            if nums[left] <= nums[
-                mid]:  # 相等表示单一元素也是有序的。 若使用'<'，当出现二分之后左边只有一个元素的情况时，就会判定为左边无序，右边有序。但是这种情况下右边[mid,n-1]等价于[0,n-1]，显然是无序的。
-                if nums[left] <= target < nums[mid]:
+            target = nums[mid]
+            if target < res:
+                res = min(res, target)
+            if nums[left] <= nums[mid]:
+                if nums[mid] <= nums[right]:
                     right = mid - 1
                 else:
                     left = mid + 1
             else:
-                if nums[mid] < target <= nums[right]:
-                    left = mid + 1
-                else:
-                    right = mid - 1
-
-        return -1
+                right = mid - 1
+        return res
 
