@@ -1,6 +1,6 @@
 class UnionFind:
     def __init__(self, size):
-        self.father = [i for i in range(size)]
+        self.father = [i for i in range(size + 1)]
 
     def join(self, x, y):
         x_f = self.find(x)
@@ -39,5 +39,5 @@ class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         union = UnionFind(len(edges))
         for u, v in edges:
-            if union.join(u - 1, v - 1):
+            if union.join(u, v):
                 return [u, v]
