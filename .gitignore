@@ -1,6 +1,9 @@
 # 系统文件
 .DS_Store
 
+# JetBrains IDE 配置文件
+.idea/
+
 # 忽略除了 leetcode_q 以外的所有文件夹
 ali/
 amazon_us/
