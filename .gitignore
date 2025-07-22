@@ -1,1 +1,20 @@
+# 系统文件
 .DS_Store
+
+# 忽略除了 leetcode_q 以外的所有文件夹
+ali/
+amazon_us/
+beaconfire/
+eBay/
+epic_oa/
+google_cn/
+RobloxOA/
+SnowFlake/
+stripe_oa/
+tesla_cn/
+Tiktok/
+tiktok_us/
+Uber_OA/
+weRideOA/
+
+# 保留 leetcode_q 文件夹（这行是注释，不需要添加排除规则）
